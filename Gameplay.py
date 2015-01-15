@@ -15,17 +15,14 @@ class Gameplay:
 		for i in range(0,int(response)):
 			players.append(Player(i))
 		continuePlaying = True
-		while(continuePlaying is True):
-			
+		while(continuePlaying is True):	
 			#make shuffled deck
 			deck = Deck()
-		
 			#give players 2 cards each
 			for i in range(0,int(response)):
 				#ask player for bet
 				players[i].getAndPlacePlayerBet()
 				players[i].hands.append([deck.drawCard(), deck.drawCard()])
-		
 			#create dealer and give them 2 cards
 			dealer = Dealer()
 			dealer.hand=[deck.drawCard(),deck.drawCard()]
