@@ -1,0 +1,2 @@
+from Gameplay import *
+Gameplay()

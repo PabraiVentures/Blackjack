@@ -1,4 +1,4 @@
-rank_to_val = {'A':(1,11),'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'J':10,'Q':10,'K':10}
+rank_to_val = {'A':[1,11],'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'J':10,'Q':10,'K':10}
 suits = set(['clubs','spades','hearts','diamonds'])
 
 class Card:
@@ -15,22 +15,22 @@ class Card:
 		return rank_to_val[self.rank]
 
 	#Returns the max value of the hand that is < = 21
-	def maxHandValue(hand):
-		aces=0
-		#calculate hand value sum
-		sum=0
-		for card in hand:
-			m= card.value()
-			if isinstance(m,list): #if we see an ace
-				sum= sum + m[1]
-				if sum >21:
-					sum = sum - 10
-				else:
-					aces= aces+1
-			else: #a non-ace
-				sum=sum+m
-			if (sum > 21) and (aces >0):
-				aces = aces-1
+def maxHandValue(hand):
+	aces=0
+	#calculate hand value sum
+	sum=0
+	for card in hand:
+		m= card.value()
+		if isinstance(m,list): #if we see an ace
+			sum= sum + m[1]
+			if sum >21:
 				sum = sum - 10
-		return sum
+			else:
+				aces= aces+1
+		else: #a non-ace
+			sum=sum+m
+		if (sum > 21) and (aces >0):
+			aces = aces-1
+			sum = sum - 10
+	return sum
 			                               
