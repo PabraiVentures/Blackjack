@@ -108,7 +108,7 @@ def letPlayersDecide(players,deck):
 				response=player.getPlayerDecisionForHand(completedHands)
 				#need to increment playerHands if we split
 				if response == 'split':
-					player.hands.append(player.hands[completedHands][1],deck.drawCard())
+					player.hands.append([player.hands[completedHands][1],deck.drawCard()])
 					player.hands[completedHands][1]=deck.drawCard()
 					playerHands=playerHands+1
 				if response == 'double':
