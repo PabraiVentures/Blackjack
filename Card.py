@@ -14,3 +14,23 @@ class Card:
 	def value(self):
 		return rank_to_val[self.rank]
 
+	#Returns the max value of the hand that is < = 21
+	def maxHandValue(hand):
+		aces=0
+		#calculate hand value sum
+		sum=0
+		for card in hand:
+			m= card.value()
+			if isinstance(m,list): #if we see an ace
+				sum= sum + m[1]
+				if sum >21:
+					sum = sum - 10
+				else:
+					aces= aces+1
+			else: #a non-ace
+				sum=sum+m
+			if (sum > 21) and (aces >0):
+				aces = aces-1
+				sum = sum - 10
+		return sum
+			                               
